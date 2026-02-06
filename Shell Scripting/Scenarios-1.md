@@ -20,6 +20,7 @@ df -H | awk 'NR>1 {print $5 " " $6}' | while read output; do
 done
 ```
 #!/bin/bash
+
 👉 Shebang: tells the system to execute this script using Bash.
 
 THRESHOLD=80
