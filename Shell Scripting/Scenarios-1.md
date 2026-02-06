@@ -1,3 +1,10 @@
+1. Monitoring disk space and sending alerts
+
+Scenario:
+Write a shell script to check disk usage. If usage exceeds 80%, send an alert email or Slack notification.
+
+Sample logic:
+
 #!/bin/bash
 THRESHOLD=80
 EMAIL="devops@company.com"
