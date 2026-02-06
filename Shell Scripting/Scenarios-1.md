@@ -25,31 +25,40 @@ done
 
 THRESHOLD=80
 EMAIL="devops@company.com"
+
 👉 Defines the disk usage limit and alert recipient.
 
 df -H
+
 👉 Displays disk usage in human-readable format.
 
 df -H | awk 'NR>1 {print $5 " " $6}'
+
 👉 Skips header and prints usage percentage ($5) and mount point ($6).
 
 while read output; do
+
 👉 Reads each filesystem line one by one.
 
 usage=$(echo $output | awk '{print $1}' | sed 's/%//')
+
 👉 Extracts numeric usage value by removing %.
 
 partition=$(echo $output | awk '{print $2}')
+
 👉 Captures the mount point.
 
 if [ $usage -ge $THRESHOLD ]; then
+
 👉 Compares current usage with threshold.
 
 echo "CRITICAL: Disk usage on $partition is ${usage}%"
+
 👉 Prints alert message (can be emailed or sent to Slack).
 
 fi
 done
+
 👉 Ends conditional and loop.
 
 2. Checking if a process is running and restarting if stopped
@@ -72,20 +81,25 @@ fi
 ```
 #!/bin/bash
 SERVICE="nginx"
+
 👉 Defines the service to monitor.
 
 pgrep -x "$SERVICE" > /dev/null
+
 👉 Checks if the exact process name exists.
 
 if ! pgrep -x "$SERVICE" > /dev/null
+
 👉 ! means process is NOT running.
 
 systemctl start $SERVICE
+
 👉 Automatically restarts the service.
 
 else
 echo "$SERVICE is running."
 fi
+
 👉 Prints service status.
 
 3. Log file analysis
@@ -101,18 +115,23 @@ echo "Top 5 IPs:"
 awk '{print $1}' $LOGFILE | sort | uniq -c | sort -nr | head -5
 ```
 awk '{print $1}' access.log
+
 👉 Extracts the client IP from each log entry.
 
 sort
+
 👉 Sorts IPs to group duplicates.
 
 uniq -c
+
 👉 Counts number of requests per IP.
 
 sort -nr
+
 👉 Sorts results in descending order.
 
 head -5
+
 👉 Displays top 5 IPs.
 
 
@@ -131,9 +150,11 @@ tar -czf $DEST $SRC
 find /backup -type f -mtime +7 -delete
 ```
 tar -czf /backup/etc-$(date +%F).tar.gz /etc
+
 👉 Compresses /etc with today’s date in filename.
 
 find /backup -type f -mtime +7 -delete
+
 👉 Deletes backup files older than 7 days.
 
 
@@ -154,15 +175,16 @@ while read url; do
   fi
 done < urls.txt
 ```
-
-5️⃣ URL Health Check Script
 while read url; do
+
 👉 Reads URLs from a file line by line.
 
 curl -o /dev/null -s -w "%{http_code}" $url
+
 👉 Sends HTTP request silently and captures status code.
 
 if [ "$status" -eq 200 ]; then
+
 👉 Checks if the service is healthy.
 
 echo "$url is UP"
@@ -170,6 +192,7 @@ else
 echo "$url is DOWN"
 fi
 done < urls.txt
+
 👉 Prints result and reads input file.
 
 6. Find large files in a directory
@@ -182,12 +205,15 @@ Example:
 du -ah /var | sort -rh | head -10
 ```
 du -ah /var
+
 👉 Calculates disk usage for all files.
 
 sort -rh
+
 👉 Sorts files by size (largest first).
 
 head -10
+
 👉 Displays top 10 largest files.
 
 
@@ -201,12 +227,15 @@ Example:
 grep "Failed password" /var/log/secure | awk '{print $(NF-3)}' | sort | uniq -c | sort -nr
 ```
 grep "Failed password" /var/log/secure
+
 👉 Filters failed login attempts.
 
 awk '{print $(NF-3)}'
+
 👉 Extracts IP address from log entry.
 
 sort | uniq -c | sort -nr
+
 👉 Counts and ranks attacking IPs.
 
 8. Memory and CPU monitoring script
@@ -225,15 +254,19 @@ if (( ${cpu%.*} > 80 || $mem > 90 )); then
 fi
 ```
 top -bn1
+
 👉 Runs top in batch mode once.
 
 awk '{print 100 - $8}'
+
 👉 Calculates actual CPU usage.
 
 free | awk '/Mem/{printf("%.0f"), $3/$2*100}'
+
 👉 Calculates memory usage percentage.
 
 if (( cpu > 80 || mem > 90 )); then
+
 👉 Triggers alert when thresholds exceed.
 
 9. Delete old log files
@@ -244,9 +277,11 @@ Remove .log files older than 15 days.
 find /var/log -name "*.log" -type f -mtime +15 -exec rm -f {} \;
 ```
 find /var/log -name "*.log" -type f -mtime +15
+
 👉 Finds log files older than 15 days.
 
 -exec rm -f {} \;
+
 👉 Deletes matched files.
 
 10. Verify SSH connectivity to list of servers
@@ -266,14 +301,16 @@ for host in $(cat servers.txt); do
 done
 ```
 for host in $(cat servers.txt); do
+
 👉 Iterates through server list.
 
 ssh -o BatchMode=yes -o ConnectTimeout=5 $host "exit"
+
 👉 Attempts password-less SSH with timeout.
 
 && echo "$host Reachable" || echo "$host Unreachable"
-👉 Prints connectivity status.
 
+👉 Prints connectivity status.
 
 | **Question**                                                  | **Expected Discussion / Key Point**                                                                       |   |                                  |
 | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | - | -------------------------------- |
@@ -282,11 +319,12 @@ ssh -o BatchMode=yes -o ConnectTimeout=5 $host "exit"
 | How do you make your scripts idempotent?                      | Check before action (e.g., if file exists, if service is running).                                        |   |                                  |
 | How do you schedule scripts?                                  | Using `cron`, `systemd timers`, or Jenkins scheduled jobs.                                                |   |                                  |
 | What’s the difference between `"$var"`, `$var`, and `${var}`? | Quoting avoids word splitting and globbing. `${}` is preferred for clarity.                               |   |                                  |
-| How do you handle error codes in scripts?                     | Check `$?`, use `                                                                                         |   | exit 1`, or wrap in `if` blocks. |
+| How do you handle error codes in scripts?                     | Check `$?`, use ` exit 1`, or wrap in `if` blocks.                                                        |   |                                  |
 | What’s the use of `trap` in shell?                            | To catch signals (like `INT`, `EXIT`) and perform cleanup.                                                |   |                                  |
 | How do you improve a slow shell script?                       | Replace loops with `awk`/`sed`, use parallelism, reduce external command calls.                           |   |                                  |
 | How do you test your shell scripts?                           | Use `shellcheck` for static analysis; dry-run critical operations.                                        |   |                                  |
 | How do you read input securely (like passwords)?              | Use `read -s var` (silent input).                                                                         |   |                                  |
+
 
 
 ⚡ SECTION 3: Real-Time Interview Coding Tasks
@@ -322,13 +360,17 @@ done
 🧩 SECTION 4: Tricky & Debugging Questions
 
 A script runs fine manually but fails in cron. Why?
+
 👉 Environment variables not loaded in cron. Use absolute paths or source profile.
 
 rm command deletes wrong files. How to prevent this?
+
 👉 Use -i interactive, or test with echo before actual deletion.
 
 You wrote a script but it says command not found. Why?
+
 👉 Missing shebang (#!/bin/bash) or script not executable (chmod +x script.sh).
 
 Script fails with “bad substitution” error. Why?
+
 👉 Using Bash syntax in /bin/sh shell. Always start with correct shebang.
