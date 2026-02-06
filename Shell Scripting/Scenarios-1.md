@@ -1,3 +1,4 @@
+🧠 SECTION 1: Real-Time Shell Scripting Scenarios for DevOps
 1. Monitoring disk space and sending alerts
 
 Scenario:
