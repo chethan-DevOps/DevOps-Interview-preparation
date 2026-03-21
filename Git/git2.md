@@ -72,11 +72,14 @@ Undo last commit and delete all associated changes permanently.
 ⚠️ Important Warning
 --hard is destructive — changes are difficult (sometimes impossible) to recover.
 Avoid using it on shared branches unless you know what you're doing.
-🧠 Quick Comparison
-Flag	HEAD	Index (Staging)	Working Directory
---soft	✅	❌ unchanged	❌ unchanged
---mixed	✅	🔄 reset	❌ unchanged
---hard	✅	🔄 reset	🔄 reset
+
+| Flag      | HEAD | Index (Staging) | Working Directory |
+| --------- | ---- | --------------- | ----------------- |
+| `--soft`  | ✅    | ❌ unchanged     | ❌ unchanged       |
+| `--mixed` | ✅    | 🔄 reset        | ❌ unchanged       |
+| `--hard`  | ✅    | 🔄 reset        | 🔄 reset          |
+
+
 🧩 Simple Mental Model
 --soft → “Undo commit, keep everything staged”
 --mixed → “Undo commit, keep changes but unstaged”
