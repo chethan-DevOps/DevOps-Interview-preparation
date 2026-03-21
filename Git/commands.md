@@ -64,3 +64,12 @@ used to get the linked repo in github
 63. **git push -u origin --delete branch-name** ---->  used to delete the github branch from local
 64. **git remote rm origin** ---->  used to unlink the github-repo
 65. **Git remote rename old -link new-link** ---->  used to change the rep
+
+66. git log --oneline
+67. git log --oneline --decorate
+68. git log --stat
+69. git log --shortlog
+70. git log --graph --oneline --decorate
+71. git log --pretty=format:"%cn %h %cd"
+72. git log --after="2025-1-1"
+73. git log --grep="JRA-224"
