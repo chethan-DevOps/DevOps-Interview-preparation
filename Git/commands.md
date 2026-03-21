@@ -37,10 +37,10 @@
 37. **git rebase branch** ---->  copy the all commits from one branch to another
 38. **it stash** ---->  to delete the changes permanently
 39. **git stash save "message"** ---->  to save the stash along with the message
-40. **git stash** ---->  apply to get back the data again
+40. **git stash apply** ---->   to get back the data again ---> it will pop the change back but the status will not be empty
 41. **git stash list** ---->  to get the list of stashes
 42. **git stash clear** ---->  to clear all stashes
-43. **git stash pop** ---->  to delete the first stash
+43. **git stash pop** ---->  to delete the first stash -->then the stash will become empty if no other stashes present 
 44. **git stash drop** ---->  used to delete the latest stash
 45. **git stash drop stash@{2}** ---->  used to delete a praticular stash
 46. **git remote add origin repo-url** ---->  link local-repo to central-repo
