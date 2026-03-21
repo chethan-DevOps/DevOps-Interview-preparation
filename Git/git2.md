@@ -85,3 +85,5 @@ Avoid using it on shared branches unless you know what you're doing.
 --mixed → “Undo commit, keep changes but unstaged”
 --hard → “Undo everything and wipe it out”
 
+
+---> if we want to commit the new changes to the latest commit(HEAD) without creating the new commit then enter the command - "git commit --amend" , it will open the commit details of latest commit so modify the commit message accordingly and save. This will make the new changes commiting into the latest commit without the need of creating new commit
