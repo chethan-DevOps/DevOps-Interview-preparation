@@ -35,25 +35,32 @@
 35. **git cherry-pick commit-id** ----> copy the single commits from one branch to another
 36. **git merge --abort** ---->  used to cancle the merge when conflicts arise
 37. **git rebase branch** ---->  copy the all commits from one branch to another
-38. **it stash** ---->  to delete the changes permanently
-39. **git stash save "message"** ---->  to save the stash along with the message
-40. **git stash apply** ---->   to get back the data again ---> it will pop the change back but the status will not be empty
-41. **git stash list** ---->  to get the list of stashes
-42. **git stash show stash@{2}** ----> to see the files or details that this particular stash contains
-43. **git stash clear** ---->  to clear all stashes
-44. **git stash pop** ---->  to delete the first stash -->then the stash will become empty if no other stashes present 
-45. **git stash drop** ---->  used to delete the latest stash
-46. **git stash drop stash@{2}** ---->  used to delete a praticular stash
-47. **git remote add origin repo-url** ---->  link local-repo to central-repo
+38. **git diff** ----> to compare the differences present in untracked changes(local) with respect to the changes which are already present in github repo(remote)
+39. **git diff --staged** ----> to compare the differences present in tracked changes(local) with respect to the changes which are already present in github repo(remote)
+40. **git diff -w** ----> to compare the differences present in untracked changes(local) with respect to the changes which are already present in github repo(remote) by ignoring the white spaces while comparing
+41. **git diff --no-index** ----> to compare the differences between 2 different files
+42. **git diff commithash-1 commithash2** ----> to compare the differences between 2 commits
+43. **git diff --word-diff** ----> to identify the word by word or char by char differences which are modified or changed
+44. **git diff --stat** ----> to get overall status of changes/differences of the files
+45. **git stash** ---->  to delete the changes permanently
+46. **git stash save "message"** ---->  to save the stash along with the message
+47. **git stash apply** ---->   to get back the data again ---> it will pop the change back but the status will not be empty
+48. **git stash list** ---->  to get the list of stashes
+49. **git stash show stash@{2}** ----> to see the files or details that this particular stash contains
+50. **git stash clear** ---->  to clear all stashes
+51. **git stash pop** ---->  to delete the first stash -->then the stash will become empty if no other stashes present 
+52. **git stash drop** ---->  used to delete the latest stash
+53. **git stash drop stash@{2}** ---->  used to delete a praticular stash
+54. **git remote add origin repo-url** ---->  link local-repo to central-repo
 used to get the linked repo in github
-48. **git push -u origin branch-name** ---->  push the code from local to central
-49. **git push -u origin branch-1 branch-2** ---->  used to push the code to multiple branches
-50. **git push -u origin --all** ---->  used to push the code to all branches at a time
-51. **git clone repo-url** ---->  used to get the code from central to local
-52. **git pull origin branch** ---->  used to get the chanes from central to local
-53. **git fetch branch-name** ---->  used to fetch the data from central to local
-54. **git fetch --all** ---->  used to fetch the changes from all branches in github
-55. **git merge origin/branch** ---->  used to merge the changes from cental to local
-56. **git push -u origin --delete branch-name** ---->  used to delete the github branch from local
-57. **git remote rm origin** ---->  used to unlink the github-repo
-58. **Git remote rename old -link new-link** ---->  used to change the rep
+55. **git push -u origin branch-name** ---->  push the code from local to central
+56. **git push -u origin branch-1 branch-2** ---->  used to push the code to multiple branches
+57. **git push -u origin --all** ---->  used to push the code to all branches at a time
+58. **git clone repo-url** ---->  used to get the code from central to local
+59. **git pull origin branch** ---->  used to get the chanes from central to local
+60. **git fetch branch-name** ---->  used to fetch the data from central to local
+61. **git fetch --all** ---->  used to fetch the changes from all branches in github
+62. **git merge origin/branch** ---->  used to merge the changes from cental to local
+63. **git push -u origin --delete branch-name** ---->  used to delete the github branch from local
+64. **git remote rm origin** ---->  used to unlink the github-repo
+65. **Git remote rename old -link new-link** ---->  used to change the rep
