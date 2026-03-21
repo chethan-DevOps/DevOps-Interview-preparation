@@ -86,4 +86,10 @@ Avoid using it on shared branches unless you know what you're doing.
 --hard → “Undo everything and wipe it out”
 
 
----> if we want to commit the new changes to the latest commit(HEAD) without creating the new commit then enter the command - "git commit --amend" , it will open the commit details of latest commit so modify the commit message accordingly and save. This will make the new changes commiting into the latest commit without the need of creating new commit
+**--->** if we want to commit the new changes to the latest commit(HEAD) without creating the new commit then enter the command - "git commit --amend" , it will open the commit details of latest commit so modify the commit message accordingly and save. This will make the new changes commiting into the latest commit without the need of creating new commit
+
+**--->** Let's say we have 6 features committed already. If we want to squash the 5th and 6th feature commits into one commit then we need to enter the command - "git rebase -i commitid(previous commit of feature 5&6- means we need to give 4th feature commit id here)". It will open the text file with features 5&6 with pick flag so change the feature 6 with squash flag and modify the commit message accordingly So it will squash the 5th and 6th feature by rewriting the history
+
+**--->** To reorder the commits in the history, we can use the same command - git rebase -i commitid(just the before commit present to the 2 commits for which we want to reorder them). It will open the text file with commit messages(with pick flag) where we can just reorder the messages accordingly. 
+
+**--->** To drop or delete the commit, we can use the same command - git rebase -i commitid(just the before commit present to the particular commit for which we want to drop/delete). It will open the text file with commit messages(with pick flag) where we can have to change pick to drop or d to delete that commit by rewriting the history 
