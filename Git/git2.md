@@ -1,3 +1,4 @@
+*/
 Git reset is a powerful command used to move the current branch (HEAD) to a specific commit, and optionally update the staging area (index) and working directory.
 
 To understand the flags --soft, --mixed, and --hard, you need to know the three layers Git manages:
@@ -80,3 +81,4 @@ Flag	HEAD	Index (Staging)	Working Directory
 --soft → “Undo commit, keep everything staged”
 --mixed → “Undo commit, keep changes but unstaged”
 --hard → “Undo everything and wipe it out”
+/*
