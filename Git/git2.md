@@ -181,10 +181,12 @@ Think of it like guessing a number between 1 and 100:
 
 Instead of checking each number,
 You always pick the middle → cut the search space in half each time.
+
 ⚠️ Tips
 Choose a reliable good commit — otherwise results may be wrong
 Make sure your test for “good vs bad” is consistent
 Avoid changing files manually during bisect
+
 🆚 When to Use It
 
 Use git bisect when:
