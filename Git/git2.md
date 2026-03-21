@@ -173,8 +173,8 @@ Skip a commit (if it can’t be tested):
 git bisect skip
 
 See progress:
-
 git bisect log
+
 🧩 Mental Model
 
 Think of it like guessing a number between 1 and 100:
