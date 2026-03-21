@@ -140,8 +140,8 @@ Git keeps narrowing down.
 5. Result
 
 Eventually, Git outputs something like:
+coomit-hash is the first bad commit
 
-<commit-hash> is the first bad commit
 6. Exit bisect
 git bisect reset
 
